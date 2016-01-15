@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  buyTicketViewController.h
 //  影靡
 //
 //  Created by zhouyong on 16/1/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface buyTicketViewController : UIViewController
 
 @end
-

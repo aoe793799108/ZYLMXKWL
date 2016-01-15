@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "homePageViewController.h"
+#import "chatViewController.h"
+#import "findViewController.h"
+#import "buyTicketViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -16,7 +21,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor=[UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    UINavigationController * homeNC = [[UINavigationController alloc]initWithRootViewController:[[homePageViewController alloc]init]];
+    homeNC.navigationBar.titleTextAttributes=@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    UINavigationController * buyTicketNC = [[UINavigationController alloc]initWithRootViewController:[[buyTicketViewController alloc]init]];
+    buyTicketNC.navigationBar.titleTextAttributes=@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    UINavigationController * findNC = [[UINavigationController alloc]initWithRootViewController:[[findViewController alloc]init]];
+    findNC.navigationBar.titleTextAttributes=@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    UINavigationController * chatNC = [[UINavigationController alloc]initWithRootViewController:[[chatViewController alloc]init]];
+    chatNC.navigationBar.titleTextAttributes=@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+    UITabBarController * tabBC = [[UITabBarController alloc]init];
+    tabBC.viewControllers = @[homeNC,buyTicketNC,findNC,chatNC];
+    tabBC.tabBar.barTintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+    
+    self.window.rootViewController = tabBC;
+    
+    
     return YES;
 }
 
